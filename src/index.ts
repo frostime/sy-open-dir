@@ -3,7 +3,7 @@
  * @Author       : frostime
  * @Date         : 2024-11-01 22:44:03
  * @FilePath     : /src/index.ts
- * @LastEditTime : 2024-11-02 14:57:42
+ * @LastEditTime : 2024-11-02 15:13:37
  * @Description  : 
  */
 import {
@@ -21,7 +21,7 @@ const openPath = (path: string) => {
     electron?.shell?.openPath(path);
 }
 
-export let i18n;
+export let i18n: I18n;
 
 export default class OpenDirPlugin extends Plugin {
 
@@ -30,10 +30,10 @@ export default class OpenDirPlugin extends Plugin {
             return;
         }
 
-        i18n = this.i18n;
+        i18n = this.i18n as I18n;
 
         const topBarElement = this.addTopBar({
-            title: ((`打开目录`)),
+            title: i18n.index_ts.opendir,
             icon: 'iconFolder',
             position: 'left',
             callback: () => {
@@ -67,7 +67,7 @@ export default class OpenDirPlugin extends Plugin {
     private addWorkspaceMenu(menu: Menu) {
         const menus = [
             {
-                label: ((`工作空间目录`)),
+                label: i18n.index_ts.workspacedir,
                 icon: 'iconFolder',
                 click: () => {
                     const workspaceDir = window.siyuan.config.system.workspaceDir;
@@ -75,7 +75,15 @@ export default class OpenDirPlugin extends Plugin {
                 }
             },
             {
-                label: ((`模板目录`)),
+                label: i18n.index_ts.datadirectory,
+                icon: 'iconFolder',
+                click: () => {
+                    const dataDir = window.siyuan.config.system.dataDir;
+                    openPath(dataDir);
+                }
+            },
+            {
+                label: i18n.index_ts.templatedir,
                 icon: 'iconFolder',
                 click: () => {
                     const dir = window.siyuan.config.system.dataDir + '/templates';
@@ -83,7 +91,7 @@ export default class OpenDirPlugin extends Plugin {
                 }
             },
             {
-                label: ((`主题目录`)),
+                label: i18n.index_ts.themedir,
                 icon: 'iconFolder',
                 click: () => {
                     const dir = window.siyuan.config.system.workspaceDir + '/conf/appearance/themes';
@@ -91,7 +99,7 @@ export default class OpenDirPlugin extends Plugin {
                 }
             },
             {
-                label: ((`自动更新安装包目录`)),
+                label: i18n.index_ts.autoupdatedir,
                 icon: 'iconFolder',
                 click: () => {
                     const dir = window.siyuan.config.system.workspaceDir + '/temp/install';
@@ -108,11 +116,11 @@ export default class OpenDirPlugin extends Plugin {
         let submenu: IMenuItemOption[] = [];
         window.siyuan.ws.app.plugins.forEach((plugin) => {
             submenu.push({
-                label: plugin.displayName,
+                label: `${plugin.displayName} (${plugin.name})`,
                 // icon: plugin.icon,
                 submenu: [
                     {
-                        label: ((`插件安装目录`)),
+                        label: i18n.index_ts.plugininstalldir,
                         icon: 'iconFolder',
                         click: () => {
                             const name = plugin.name;
@@ -121,7 +129,7 @@ export default class OpenDirPlugin extends Plugin {
                         }
                     },
                     {
-                        label: ((`插件数据目录`)),
+                        label: i18n.index_ts.plugindatadir,
                         icon: 'iconFile',
                         click: () => {
                             const name = plugin.name;
@@ -130,7 +138,7 @@ export default class OpenDirPlugin extends Plugin {
                             if (fs.existsSync(dir)) {
                                 openPath(dir);
                             } else {
-                                showMessage(((`该插件没有在本地注册数据目录`)), 3000, 'error');
+                                showMessage(i18n.index_ts.noregisteredplugindir, 3000, 'error');
                             }
                         }
                     }
@@ -138,7 +146,7 @@ export default class OpenDirPlugin extends Plugin {
             });
         });
         menu.addItem({
-            label: ((`插件目录`)),
+            label: i18n.index_ts.plugindir,
             icon: 'iconFolder',
             submenu: submenu
         });

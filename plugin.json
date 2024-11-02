@@ -12,17 +12,15 @@
   ],
   "frontends": [
     "desktop",
-    "browser-desktop",
-    "browser-mobile",
     "desktop-window"
   ],
   "displayName": {
-    "en_US": "Plugin sample with vite",
-    "zh_CN": "插件样例 vite 版"
+    "en_US": "Open Directory",
+    "zh_CN": "打开目录"
   },
   "description": {
-    "en_US": "SiYuan plugin sample with vite",
-    "zh_CN": "使用 vite 开发的思源插件样例"
+    "en_US": "Quickly open SiYuan directories in the local file system",
+    "zh_CN": "快速在本地文件系统中打开思源中的某些目录"
   },
   "readme": {
     "en_US": "README.md",
