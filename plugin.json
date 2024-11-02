@@ -8,13 +8,10 @@
     "windows",
     "linux",
     "darwin",
-    "docker",
-    "ios",
-    "android"
+    "ios"
   ],
   "frontends": [
     "desktop",
-    "mobile",
     "browser-desktop",
     "browser-mobile",
     "desktop-window"

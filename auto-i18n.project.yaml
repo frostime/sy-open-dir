@@ -1,0 +1,13 @@
+code_files:
+- src/**/*.ts
+- src/**/*.svelte
+- src/**/*.tsx
+- src/**/*.vue
+dict: {}
+export_dir: src/types
+i18n_dir: public/i18n
+i18n_pattern: \(\(`(.+?)`\)\)
+i18n_var_mid: filename
+i18n_var_prefix: i18n
+main_file: zh_CN.json
+strategy: diff
