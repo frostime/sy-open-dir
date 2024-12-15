@@ -9,6 +9,8 @@
     "plugindatadir": "插件数据目录",
     "noregisteredplugindir": "该插件没有在本地注册数据目录",
     "plugindir": "插件目录",
-    "datadirectory": "数据目录"
+    "datadirectory": "数据目录",
+    "public_directory": "Public 目录",
+    "reload_siyuan": "重载思源"
   }
 }

@@ -10,5 +10,7 @@ interface I18n {
         noregisteredplugindir: string;
         plugindir: string;
         datadirectory: string;
+        public_directory: string;
+        reload_siyuan: string;
     };
 }

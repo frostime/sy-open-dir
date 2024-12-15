@@ -4,11 +4,13 @@
     "workspacedir": "Workspace Directory",
     "templatedir": "Template Directory",
     "themedir": "Theme Directory",
-    "autoupdatedir": "Auto-Update Package Directory",
+    "autoupdatedir": "Auto-Update Directory",
     "plugininstalldir": "Plugin Installation Directory",
     "plugindatadir": "Plugin Data Directory",
     "noregisteredplugindir": "This plugin has no locally registered data directory",
     "plugindir": "Plugin Directory",
-    "datadirectory": "Data Directory"
+    "datadirectory": "Data Directory",
+    "public_directory": "Public Directory",
+    "reload_siyuan": "Reload SiYuan"
   }
 }

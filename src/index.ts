@@ -3,7 +3,7 @@
  * @Author       : frostime
  * @Date         : 2024-11-01 22:44:03
  * @FilePath     : /src/index.ts
- * @LastEditTime : 2024-11-02 15:13:37
+ * @LastEditTime : 2024-12-15 11:37:39
  * @Description  : 
  */
 import {
@@ -91,6 +91,14 @@ export default class OpenDirPlugin extends Plugin {
                 }
             },
             {
+                label: i18n.index_ts.public_directory,
+                icon: 'iconFolder',
+                click: () => {
+                    const dir = window.siyuan.config.system.dataDir + '/public';
+                    openPath(dir);
+                }
+            },
+            {
                 label: i18n.index_ts.themedir,
                 icon: 'iconFolder',
                 click: () => {
@@ -149,6 +157,14 @@ export default class OpenDirPlugin extends Plugin {
             label: i18n.index_ts.plugindir,
             icon: 'iconFolder',
             submenu: submenu
+        });
+        menu.addSeparator();
+        menu.addItem({
+            label: i18n.index_ts.reload_siyuan,
+            icon: 'iconFolder',
+            click: () => {
+                window.location.reload();
+            }
         });
     }
 }

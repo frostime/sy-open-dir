@@ -1,6 +1,6 @@
 {
   "name": "sy-open-dir",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
   "description": "This is a sample plugin based on vite and svelte for Siyuan (https://b3log.org/siyuan). Created with siyuan-plugin-cli v2.4.4.",
   "repository": "https://github.com/frostime/sy-open-dir",
