@@ -161,7 +161,7 @@ export default class OpenDirPlugin extends Plugin {
         menu.addSeparator();
         menu.addItem({
             label: i18n.index_ts.reload_siyuan,
-            icon: 'iconFolder',
+            icon: 'iconRefresh',
             click: () => {
                 window.location.reload();
             }
