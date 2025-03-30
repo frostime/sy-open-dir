@@ -12,5 +12,6 @@ interface I18n {
         datadirectory: string;
         public_directory: string;
         reload_siyuan: string;
+        asset_dir: string;
     };
 }

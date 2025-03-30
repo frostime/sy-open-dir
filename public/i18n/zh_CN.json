@@ -11,6 +11,7 @@
     "plugindir": "插件目录",
     "datadirectory": "数据目录",
     "public_directory": "Public 目录",
-    "reload_siyuan": "重载思源"
+    "reload_siyuan": "重载思源",
+    "asset_dir": "Asset 目录"
   }
 }

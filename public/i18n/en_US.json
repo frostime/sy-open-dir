@@ -11,6 +11,7 @@
     "plugindir": "Plugin Directory",
     "datadirectory": "Data Directory",
     "public_directory": "Public Directory",
-    "reload_siyuan": "Reload SiYuan"
+    "reload_siyuan": "Reload SiYuan",
+    "asset_dir": "Asset directory"
   }
 }

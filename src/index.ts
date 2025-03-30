@@ -3,7 +3,7 @@
  * @Author       : frostime
  * @Date         : 2024-11-01 22:44:03
  * @FilePath     : /src/index.ts
- * @LastEditTime : 2024-12-15 11:37:39
+ * @LastEditTime : 2025-03-30 14:07:39
  * @Description  : 
  */
 import {
@@ -87,6 +87,14 @@ export default class OpenDirPlugin extends Plugin {
                 icon: 'iconFolder',
                 click: () => {
                     const dir = window.siyuan.config.system.dataDir + '/templates';
+                    openPath(dir);
+                }
+            },
+            {
+                label: i18n.index_ts.asset_dir,
+                icon: 'iconFolder',
+                click: () => {
+                    const dir = window.siyuan.config.system.dataDir + '/assets';
                     openPath(dir);
                 }
             },
