@@ -12,6 +12,8 @@
     "datadirectory": "数据目录",
     "public_directory": "Public 目录",
     "reload_siyuan": "重载思源",
-    "asset_dir": "Asset 目录"
+    "asset_dir": "Asset 目录",
+    "app_dir": "思源应用目录",
+    "home_dir": "用户家目录"
   }
 }

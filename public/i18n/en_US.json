@@ -12,6 +12,8 @@
     "datadirectory": "Data Directory",
     "public_directory": "Public Directory",
     "reload_siyuan": "Reload SiYuan",
-    "asset_dir": "Asset directory"
+    "asset_dir": "Asset directory",
+    "app_dir": "SiYuan App Directory",
+    "home_dir": "User Home Directory"
   }
 }

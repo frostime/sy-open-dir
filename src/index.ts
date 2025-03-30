@@ -3,7 +3,7 @@
  * @Author       : frostime
  * @Date         : 2024-11-01 22:44:03
  * @FilePath     : /src/index.ts
- * @LastEditTime : 2025-03-30 14:07:39
+ * @LastEditTime : 2025-03-30 14:13:21
  * @Description  : 
  */
 import {
@@ -166,6 +166,29 @@ export default class OpenDirPlugin extends Plugin {
             icon: 'iconFolder',
             submenu: submenu
         });
+        menu.addSeparator();
+        menu.addItem({
+            label: 'Others',
+            icon: 'iconFolder',
+            submenu: [
+                {
+                    label: i18n.index_ts.app_dir,
+                    icon: 'iconFolder',
+                    click: () => {
+                        const appDir = window.siyuan.config.system.appDir;
+                        openPath(appDir);
+                    }
+                },
+                {
+                    label: i18n.index_ts.home_dir,
+                    icon: 'iconFolder',
+                    click: () => {
+                        const homeDir = window.siyuan.config.system.homeDir;
+                        openPath(homeDir);
+                    }
+                }
+            ]
+        })
         menu.addSeparator();
         menu.addItem({
             label: i18n.index_ts.reload_siyuan,

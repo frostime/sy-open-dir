@@ -13,5 +13,7 @@ interface I18n {
         public_directory: string;
         reload_siyuan: string;
         asset_dir: string;
+        app_dir: string;
+        home_dir: string;
     };
 }
