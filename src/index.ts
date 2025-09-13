@@ -194,7 +194,8 @@ export default class OpenDirPlugin extends Plugin {
             label: i18n.index_ts.reload_siyuan,
             icon: 'iconRefresh',
             click: () => {
-                window.location.reload();
+                // window.location.reload();
+                fetch('/api/ui/reloadUI', { method: 'POST' });
             }
         });
     }
