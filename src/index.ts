@@ -15,10 +15,31 @@ import {
 
 const electron = require('electron');
 const fs = require('fs');
-// const path = require('path');
+const path = require('path');
+const { execFile } = require('child_process');
 
-const openPath = (path: string) => {
-    electron?.shell?.openPath(path);
+const openPath = async (directory: string) => {
+    try {
+        if (process.platform === 'win32') {
+            // Electron uses the "explore" verb for folders, bypassing some default file managers.
+            // Expand the path from an environment variable so cmd does not reparse %, & or ! in it.
+            await new Promise<void>((resolve, reject) => {
+                execFile('cmd.exe', ['/d', '/v:off', '/c', 'start "" "%SY_OPEN_DIR%"'], {
+                    env: { ...process.env, SY_OPEN_DIR: path.normalize(directory) },
+                    windowsVerbatimArguments: true,
+                    windowsHide: true,
+                }, (error: Error | null) => error ? reject(error) : resolve());
+            });
+        } else {
+            const error = await electron?.shell?.openPath(directory);
+            if (error) {
+                throw new Error(error);
+            }
+        }
+    } catch (error) {
+        console.error('Failed to open directory:', directory, error);
+        showMessage(String(error), 5000, 'error');
+    }
 }
 
 export let i18n: I18n;
@@ -110,8 +131,10 @@ export default class OpenDirPlugin extends Plugin {
                 label: i18n.index_ts.themedir,
                 icon: 'iconFolder',
                 click: () => {
-                    const dir = window.siyuan.config.system.workspaceDir + '/conf/appearance/themes';
-                    openPath(dir);
+                    const { dataDir, workspaceDir } = window.siyuan.config.system;
+                    const themesDir = path.join(dataDir, 'themes');
+                    const legacyThemesDir = path.join(workspaceDir, 'conf/appearance/themes');
+                    openPath(fs.existsSync(themesDir) ? themesDir : legacyThemesDir);
                 }
             },
             {
